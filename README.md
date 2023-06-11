@@ -19,5 +19,5 @@ Install all dependencies
 To start the server you can run
 `npm start`
 
-To test defferent querys you can navigate to
+To test defferent queries on apollo graphql sandbox you can navigate to
 [Localhost](http://localhost:4000/) 
