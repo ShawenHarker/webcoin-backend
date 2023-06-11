@@ -15,20 +15,38 @@ const typeDefs = `#graphql
     percent_change_7d: String
     price_btc: String
     market_cap_usd: String
+  },
+  type Market {
+    name: String
+    base: String
+    quote: String
+    price: Int
+    price_usd: Int
+    volume: Int
+    volume_usd: Int
+    time: Int
   }
 
   type Query {
-    data: [Coin]
+    coins: [Coin]
+    market: [Market]
   }
 `;
 
 const resolvers = {
   Query: {
-    data: async () => {
+    coins: async () => {
       const response = await axios.get("https://api.coinlore.net/api/tickers/");
       const data = await response.data.data;
       return data;
     },
+    market:async (coin_id: {id: {type: 'string'}}) => {
+        const response = await axios.get(
+          `https://api.coinlore.net/api/coin/markets/?id=${coin_id}`
+        );
+        const data = await response.data.data;
+        return data;
+    }
   },
 };
 
