@@ -1,0 +1,22 @@
+{
+  "name": "webcoin-backend",
+  "version": "1.0.0",
+  "description": "Webcoin's backend",
+  "main": "index.js",
+  "author": "Shawen Harker",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.7.3",
+    "axios": "^1.4.0",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "typescript": "^5.1.3"
+  }
+}
