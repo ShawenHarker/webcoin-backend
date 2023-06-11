@@ -6,3 +6,9 @@ ________________________________________________________________________________
 
 ### How to get started on the project.
 
+You will need:
+- `node v18` or higher
+- `npm v9` or higher
+
+You first need to clone the repo:
+``
