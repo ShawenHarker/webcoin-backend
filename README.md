@@ -11,4 +11,13 @@ You will need:
 - `npm v9` or higher
 
 You first need to clone the repo:
-``
+`gh repo clone ShawenHarker/webcoin-backend`
+
+Install all dependencies
+`npm install`
+
+To start the server you can run
+`npm start`
+
+To test defferent querys you can navigate to
+[Localhost](http://localhost:4000/) 
