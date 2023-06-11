@@ -13,17 +13,17 @@ const typeDefs = `#graphql
     percent_change_24h: String
     percent_change_7d: String
     price_btc: String
-    market_cap_usd: String,
-    type Market {
-      name: String
-      base: String
-      quote: String
-      price: Int
-      price_usd: Int
-      volume: Int
-      volume_usd: Int
-      time: Int
-  }
+    market_cap_usd: String
+  },
+  type Market {
+    name: String
+    base: String
+    quote: String
+    price: Int
+    price_usd: Int
+    volume: Int
+    volume_usd: Int
+    time: Int
   }
 
   type Query {
@@ -42,7 +42,7 @@ const resolvers = {
             const response = await axios.get(`https://api.coinlore.net/api/coin/markets/?id=${coin_id}`);
             const data = await response.data.data;
             return data;
-        },
+        }
     },
 };
 const server = new ApolloServer({ typeDefs, resolvers });
