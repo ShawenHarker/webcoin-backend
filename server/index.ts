@@ -31,7 +31,7 @@ const typeDefs = `#graphql
 const resolvers = {
   Query: {
     data: async () => {
-      const response = await axios.get(`${process.env.PORT}`);
+      const response = await axios.get(process.env.URL);
       const data = await response.data.data;
       return data;
     },
@@ -41,7 +41,7 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers });
 
 const { url } = await startStandaloneServer(server, {
-  listen: { port: 4000 },
+  listen: { port: parseInt(process.env.PORT) },
 });
 
 console.log(`🚀  Server ready at: ${url}`);
