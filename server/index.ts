@@ -1,6 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import axios from "axios";
+import "dotenv/config";
 
 const typeDefs = `#graphql
   type Coin {
@@ -15,6 +16,11 @@ const typeDefs = `#graphql
     percent_change_7d: String
     price_btc: String
     market_cap_usd: String
+    volume24: Int
+    volume24a: Int
+    csupply: String
+    tsupply: String
+    msupply: String
   }
 
   type Query {
@@ -25,14 +31,14 @@ const typeDefs = `#graphql
 const resolvers = {
   Query: {
     data: async () => {
-      const response = await axios.get("https://api.coinlore.net/api/tickers/");
+      const response = await axios.get(`${process.env.PORT}`);
       const data = await response.data.data;
       return data;
     },
   },
 };
 
-const server = new ApolloServer({typeDefs, resolvers});
+const server = new ApolloServer({ typeDefs, resolvers });
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
