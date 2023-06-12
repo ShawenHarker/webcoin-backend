@@ -16,8 +16,8 @@ const typeDefs = `#graphql
     percent_change_7d: String
     price_btc: String
     market_cap_usd: String
-    volume24: Int
-    volume24a: Int
+    volume24: Float
+    volume24a: Float
     csupply: String
     tsupply: String
     msupply: String

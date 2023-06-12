@@ -15,8 +15,8 @@ const typeDefs = `#graphql
     percent_change_7d: String
     price_btc: String
     market_cap_usd: String
-    volume24: Int
-    volume24a: Int
+    volume24: Float
+    volume24a: Float
     csupply: String
     tsupply: String
     msupply: String
@@ -29,7 +29,7 @@ const typeDefs = `#graphql
 const resolvers = {
     Query: {
         data: async () => {
-            const response = await axios.get(`${process.env.PORT}`);
+            const response = await axios.get(process.env.URL);
             const data = await response.data.data;
             return data;
         },
@@ -37,6 +37,6 @@ const resolvers = {
 };
 const server = new ApolloServer({ typeDefs, resolvers });
 const { url } = await startStandaloneServer(server, {
-    listen: { port: 4000 },
+    listen: { port: parseInt(process.env.PORT) },
 });
 console.log(`🚀  Server ready at: ${url}`);
