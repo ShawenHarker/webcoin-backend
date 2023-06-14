@@ -7,8 +7,8 @@
   "license": "ISC",
   "type": "module",
   "engines": {
-     "npm" : ">=9.5.0",
-    "node": ">=18.15.0"
+     "npm" : "9.5.0",
+    "node": "18.15.0"
   },
   "scripts": {
     "compile": "tsc",
