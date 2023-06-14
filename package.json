@@ -6,6 +6,10 @@
   "author": "Shawen Harker",
   "license": "ISC",
   "type": "module",
+  "engines": {
+     "npm" : ">=9.5.0",
+    "node": ">=18.15.0"
+  },
   "scripts": {
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js"
