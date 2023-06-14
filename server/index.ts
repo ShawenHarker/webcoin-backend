@@ -6,6 +6,7 @@ import "dotenv/config";
 const typeDefs = `#graphql
   type Coin {
     id: String
+    nameid: String
     symbol: String
     name: String
     rank: Int
@@ -22,8 +23,7 @@ const typeDefs = `#graphql
     msupply: String
   }
 
-  type Query {
-    coin: [Coin]
+  type Query {    coin: [Coin]
   }
 `;
 
@@ -32,7 +32,7 @@ const resolvers = {
   Query: {
     coin: async () => {
       const {
-        data: { data },
+        data: { data }
       } = await axios.get(process.env.URL);
       return data;
     },
