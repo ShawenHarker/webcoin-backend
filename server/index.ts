@@ -6,7 +6,6 @@ import "dotenv/config";
 const typeDefs = `#graphql
   type Coin {
     id: String
-    nameid: String
     symbol: String
     name: String
     rank: Int
@@ -16,22 +15,17 @@ const typeDefs = `#graphql
     percent_change_7d: String
     price_btc: String
     market_cap_usd: String
-    volume24: Float
-    volume24a: Float
-    csupply: String
-    tsupply: String
-    msupply: String
   }
 
   type Query {
-    data: [Coin]
+    tickersForHomeScreen: [Coin]
   }
 `;
 
 // The resolvers function is getting the data from the Coinlore API.
 const resolvers = {
   Query: {
-    data: async () => {
+    tickersForHomeScreen: async () => {
       const response = await axios.get(process.env.URL);
       const data = await response.data.data;
       return data;
