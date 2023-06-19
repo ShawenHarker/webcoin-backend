@@ -18,14 +18,14 @@ const typeDefs = `#graphql
   }
 
   type Query {
-    tickersForHomeScreen: [Coin]
+    data: [Coin]
   }
 `;
 
 // The resolvers function is getting the data from the Coinlore API.
 const resolvers = {
   Query: {
-    tickersForHomeScreen: async () => {
+    data: async () => {
       const response = await axios.get(process.env.URL);
       const data = await response.data.data;
       return data;
